@@ -17,4 +17,4 @@
 <string></string>
 ```
 - Hoặc edit trong Properties List
-![][/Screen Shot 2020-04-25 at 17.11.58.png]
+![image](Screen Shot 2020-04-25 at 17.11.58.png)
