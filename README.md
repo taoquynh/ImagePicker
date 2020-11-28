@@ -6,7 +6,7 @@
 
 ## Chỉnh sửa file info.plist
 
-- Edit trong source code (file xml)
+- Edit trong source code
 
 ```
 <key>NSCameraUsageDescription</key>
