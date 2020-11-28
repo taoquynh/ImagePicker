@@ -10,11 +10,15 @@
 
 ```
 <key>NSCameraUsageDescription</key>
-<string></string>
+<string>My App cần truy cập máy ảnh của bạn. Ảnh của bạn sẽ không được chia sẻ khi chưa được phép của bạn.</string>
 <key>NSMicrophoneUsageDescription</key>
-<string></string>
+<string>My App cần truy cập microphone của bạn. Microphone của bạn sẽ không được chia sẻ khi chưa được phép của bạn.</string>
 <key>NSPhotoLibraryUsageDescription</key>
-<string></string>
+<string>My App cần truy cập thư viện của bạn. Ảnh của bạn sẽ không được chia sẻ khi chưa được phép của bạn.</string>
 ```
 - Hoặc edit trong Properties List
-<img src="Screen Shot 2020-04-25 at 17.11.58.png"/>
+<img src="images/Screen Shot 2020-11-28 at 10.34.46.png"/>
+
+## Run
+
+- Lưu ý khi sử dụng máy ảo simulator, sẽ không test được camera

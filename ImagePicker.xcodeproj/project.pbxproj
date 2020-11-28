@@ -13,7 +13,6 @@
 		A9430BB82396399E0008B23B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9430BB62396399E0008B23B /* Main.storyboard */; };
 		A9430BBA2396399F0008B23B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9430BB92396399F0008B23B /* Assets.xcassets */; };
 		A9430BBD2396399F0008B23B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9430BBB2396399F0008B23B /* LaunchScreen.storyboard */; };
-		A96AD88B245444BC00DAE0C2 /* Screen Shot 2020-04-25 at 17.11.58.png in Resources */ = {isa = PBXBuildFile; fileRef = A96AD88A245444BC00DAE0C2 /* Screen Shot 2020-04-25 at 17.11.58.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +25,6 @@
 		A9430BBC2396399F0008B23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9430BBE2396399F0008B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A96AD889245443CA00DAE0C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A96AD88A245444BC00DAE0C2 /* Screen Shot 2020-04-25 at 17.11.58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2020-04-25 at 17.11.58.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +42,6 @@
 			isa = PBXGroup;
 			children = (
 				A96AD889245443CA00DAE0C2 /* README.md */,
-				A96AD88A245444BC00DAE0C2 /* Screen Shot 2020-04-25 at 17.11.58.png */,
 				A9430BAF2396399E0008B23B /* ImagePicker */,
 				A9430BAE2396399E0008B23B /* Products */,
 			);
@@ -130,7 +127,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A96AD88B245444BC00DAE0C2 /* Screen Shot 2020-04-25 at 17.11.58.png in Resources */,
 				A9430BBD2396399F0008B23B /* LaunchScreen.storyboard in Resources */,
 				A9430BBA2396399F0008B23B /* Assets.xcassets in Resources */,
 				A9430BB82396399E0008B23B /* Main.storyboard in Resources */,

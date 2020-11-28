@@ -24,15 +24,14 @@ class ViewController: UIViewController {
         imagePicker.delegate = self
     }
     
+    // MARK: - Chọn ảnh
     @objc func selectedImage(){
-        let alert = UIAlertController(title: "App", message: "Chọn ảnh từ", preferredStyle: .alert)
+        let alert = UIAlertController(title: "My App", message: "Chọn ảnh từ", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
         let camera = UIAlertAction(title: "Máy ảnh", style: .default, handler: { (_) in
-            print("Chọn ảnh từ máy ảnh")
             self.fromCamera()
         })
         let libray = UIAlertAction(title: "Thư viện", style: .default, handler: { (_) in
-            print("Chọn ảnh từ thư viện")
             self.fromLibrary()
         })
         
@@ -44,13 +43,16 @@ class ViewController: UIViewController {
     }
     
     func confirm(message: String, viewController: UIViewController?, success: @escaping () -> Void){
-        let alert = UIAlertController(title: "NoiBai App", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let alert = UIAlertController(title: "My App", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default) { (action) in
+            success()
+        }
         alert.addAction(action)
         
         viewController?.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Open setting photos của hệ điều hành
     func setting(){
         let message = "App cần truy cập máy ảnh và thư viện của bạn. Ảnh của bạn sẽ không được chia sẻ khi chưa được phép của bạn."
         confirm(message: message, viewController: self) {
@@ -68,13 +70,14 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Lấy ảnh từ thư viện
     private func fromLibrary(){
         func choosePhoto(){
-            self.imagePicker.allowsEditing = false
-            self.imagePicker.sourceType = .photoLibrary
-            self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-            self.imagePicker.modalPresentationStyle = .popover
             DispatchQueue.main.async {
+                self.imagePicker.allowsEditing = false
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                self.imagePicker.modalPresentationStyle = .popover
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
         }
@@ -94,29 +97,30 @@ class ViewController: UIViewController {
                     choosePhoto()
                 }else {
                     print("Không được cho phép truy cập vào thư viện ảnh")
-                    self.setting()
+                    DispatchQueue.main.async {
+                        self.setting()
+                    }
                 }
             })
         }else if (status == PHAuthorizationStatus.restricted) {
             // Truy cập bị hạn chế, thông thường sẽ không xảy ra
-            print("Restricted access")
             setting()
         }
     }
     
+    // MARK: - Lấy ảnh từ camera
     private func fromCamera(){
         func takePhoto(){
             if UIImagePickerController.isSourceTypeAvailable(.camera){
-                self.imagePicker.allowsEditing = false
-                self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
-                self.imagePicker.cameraCaptureMode = .photo
-                self.imagePicker.cameraDevice = .front
-                self.imagePicker.modalPresentationStyle = .fullScreen
                 DispatchQueue.main.async {
+                    self.imagePicker.allowsEditing = false
+                    self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
+                    self.imagePicker.cameraCaptureMode = .photo
+                    self.imagePicker.cameraDevice = .front
+                    self.imagePicker.modalPresentationStyle = .fullScreen
                     self.present(self.imagePicker, animated: true,completion: nil)
                 }
             }else{
-                print("abc")
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Thông báo", message: "Không tìm thấy máy ảnh", preferredStyle: .alert)
                     let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -125,6 +129,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
         //Camera
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             if response {
